@@ -7,12 +7,12 @@
 % Email		: krishna@dsplog.com
 % Version	: 1.0
 % Date		: 5 August 2007
-% Adapted by Herve Boeglen for Rayleigh channel 06/22
+% Adapted by Herve Boeglen for the Rayleigh channel 06/22
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 clear
-N = 4*10^6 % number of bits or symbols
+N = 2*10^6; % number of bits or symbols
 rand('state',100); % initializing the rand() function
 randn('state',200); % initializing the randn() function
 
@@ -54,11 +54,12 @@ RayleighsimBer = nErr/N; % simulated ber
 
 % plot
 close all
-figure
+f1=figure('position',[400 100 900 700]);
+figure(f1)
 semilogy(Eb_N0_dB,AWGNsimBer,'bx-','linewidth',3);
 hold on
 semilogy(Eb_N0_dB,RayleighsimBer,'mx-','linewidth',3);
-axis([-3 11 10^-7 0.5])
+axis([-2 10 10^-6 0.5])
 grid on
 legend('AWGN', 'Rayleigh');
 xlabel('Eb/No, dB');
